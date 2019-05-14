@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="CodeTemplate\IRepositoryTemplate.txt" />
+    <None Remove="CodeTemplate\IServicesTemplate.txt" />
+    <None Remove="CodeTemplate\ModelTemplate.txt" />
+    <None Remove="CodeTemplate\RepositoryTemplate.txt" />
+    <None Remove="CodeTemplate\ServiceTemplate.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="CodeTemplate\IRepositoryTemplate.txt" />
+    <EmbeddedResource Include="CodeTemplate\IServicesTemplate.txt" />
+    <EmbeddedResource Include="CodeTemplate\ModelTemplate.txt" />
+    <EmbeddedResource Include="CodeTemplate\RepositoryTemplate.txt" />
+    <EmbeddedResource Include="CodeTemplate\ServiceTemplate.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Abstractions" Version="1.2.0" />
+    <PackageReference Include="AspectCore.Extensions.DependencyInjection" Version="1.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\IRepository\IRepository.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Repository\Repository.csproj" />
+  </ItemGroup>
+
+</Project>
