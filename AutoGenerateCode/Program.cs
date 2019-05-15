@@ -5,23 +5,19 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Models;
 using Repository;
+using Services;
 using System;
 
 namespace AutoGenerateCode
 {
     class Program
     {
-        private readonly IArticleCategoryService _service;
-
-        public Program(IArticleCategoryService service)
-        {
-            _service = service;
-        }
+      
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
-            //var serviceProvider = BuildServiceForSqlServer();
+            var serviceProvider = BuildServiceForSqlServer();
             //var codeGenerator = serviceProvider.GetRequiredService<CodeGenerator>();
             //codeGenerator.GenerateTemplateCodesFromDatabase(true);
             //Console.WriteLine("自动代码生成完成,按任意键退出");
@@ -60,8 +56,10 @@ namespace AutoGenerateCode
             //var list = categoryRepository.GetList();
             //categoryRepository.DeleteList("where 1=1");
             //var count = categoryRepository.RecordCount();
+        
 
-
+            IMenuService service= serviceProvider.GetService<IMenuService>();
+            var list= service.LoadData();
 
             Console.ReadLine();
         }
@@ -91,11 +89,9 @@ namespace AutoGenerateCode
 
 
             });
-            //var path = AppContext.BaseDirectory;
-            //var config = GetConfiguration().GetSection("DbOpion");
             services.Configure<DbOption>("EasyAdmin", GetConfiguration().GetSection("DbOpion"));
-            services.AddScoped<IArticleRepository, ArticleRepository>();
-            services.AddScoped<IArticleCategoryRepository, ArticleCategoryRepository>();
+            services.AddScoped<IMenuService, MenuService>();
+            services.AddScoped<IMenuRepository, MenuRepository>();
             services.AddScoped<CodeGenerator>();
             return services.BuildServiceProvider(); //构建服务提供程序
         }

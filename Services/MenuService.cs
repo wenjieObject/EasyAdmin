@@ -35,6 +35,7 @@
 */
 using IRepository;
 using IServices;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -48,6 +49,17 @@ namespace Services
         public MenuService(IMenuRepository repository)
         {
             _repository = repository;
+        }
+        
+        public List<Menu> LoadData()
+        {
+            var menus = _repository.GetList();
+            var menuList = new List<Menu>();
+            foreach(var menu in menus)
+            {
+                menuList.Add(menu);
+            }
+           return menuList;
         }
     }
 }
