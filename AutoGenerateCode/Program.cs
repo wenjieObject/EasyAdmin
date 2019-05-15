@@ -1,5 +1,6 @@
 ﻿using Common;
 using IRepository;
+using IServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Models;
@@ -10,44 +11,52 @@ namespace AutoGenerateCode
 {
     class Program
     {
+        private readonly IArticleCategoryService _service;
+
+        public Program(IArticleCategoryService service)
+        {
+            _service = service;
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
-            var serviceProvider = BuildServiceForSqlServer();
+            //var serviceProvider = BuildServiceForSqlServer();
             //var codeGenerator = serviceProvider.GetRequiredService<CodeGenerator>();
             //codeGenerator.GenerateTemplateCodesFromDatabase(true);
             //Console.WriteLine("自动代码生成完成,按任意键退出");
 
-            IArticleCategoryRepository categoryRepository = serviceProvider.GetService<IArticleCategoryRepository>();
-            var category1 = new ArticleCategory
-            {
-                Title = "随笔1",
-                ParentId = 0,
-                ClassList = "",
-                ClassLayer = 0,
-                Sort = 0,
-                ImageUrl = "",
-                SeoTitle = "随笔的SEOTitle",
-                SeoKeywords = "随笔的SeoKeywords",
-                SeoDescription = "随笔的SeoDescription",
-                IsDeleted = false,
-            };
-            var category2 = new ArticleCategory
-            {
-                Title = null,
-                ParentId = 0,
-                ClassList = "",
-                ClassLayer = 0,
-                Sort = 0,
-                ImageUrl = "",
-                SeoTitle = "随笔的SEOTitle",
-                SeoKeywords = "随笔的SeoKeywords",
-                SeoDescription = "随笔的SeoDescription",
-                IsDeleted = false,
-            };
-            var categoryId = categoryRepository.Insert(category1);
-            var categoryId2 = categoryRepository.Insert(category2);
+            //_service.get
+
+            //var category1 = new ArticleCategory
+            //{
+            //    Title = "随笔1",
+            //    ParentId = 0,
+            //    ClassList = "",
+            //    ClassLayer = 0,
+            //    Sort = 0,
+            //    ImageUrl = "",
+            //    SeoTitle = "随笔的SEOTitle",
+            //    SeoKeywords = "随笔的SeoKeywords",
+            //    SeoDescription = "随笔的SeoDescription",
+            //    IsDeleted = false,
+            //};
+            //var category2 = new ArticleCategory
+            //{
+            //    Title = "随笔2",
+            //    ParentId = 0,
+            //    ClassList = "",
+            //    ClassLayer = 0,
+            //    Sort = 0,
+            //    ImageUrl = "",
+            //    SeoTitle = "随笔的SEOTitle",
+            //    SeoKeywords = "随笔的SeoKeywords",
+            //    SeoDescription = "随笔的SeoDescription",
+            //    IsDeleted = false,
+            //};
+            //var categoryId = categoryRepository.Insert(category1);
+            //var categoryId2 = categoryRepository.Insert(category2);
+
             //var list = categoryRepository.GetList();
             //categoryRepository.DeleteList("where 1=1");
             //var count = categoryRepository.RecordCount();
@@ -77,13 +86,13 @@ namespace AutoGenerateCode
                 options.ModelsNamespace = "Models";//实体命名空间
                 options.IRepositoryNamespace = "IRepository";//仓储接口命名空间
                 options.RepositoryNamespace = "Repository";//仓储命名空间
-                //options.IServicesNamespace = "Czar.Cms.IServices";//服务接口命名空间
-                //options.ServicesNamespace = "Czar.Cms.Services";//服务命名空间
+                options.IServicesNamespace = "IServices";//服务接口命名空间
+                options.ServicesNamespace = "Services";//服务命名空间
 
 
             });
-            var path = AppContext.BaseDirectory;
-            var config = GetConfiguration().GetSection("DbOpion");
+            //var path = AppContext.BaseDirectory;
+            //var config = GetConfiguration().GetSection("DbOpion");
             services.Configure<DbOption>("EasyAdmin", GetConfiguration().GetSection("DbOpion"));
             services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<IArticleCategoryRepository, ArticleCategoryRepository>();

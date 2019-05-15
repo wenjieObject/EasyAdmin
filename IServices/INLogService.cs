@@ -23,29 +23,23 @@
 
 /**
 *┌──────────────────────────────────────────────────────────────┐
-*│　描    述：操作日志                                                    
+*│　描    述：                                                    
 *│　作    者：jwj                                              
 *│　版    本：1.0   模板代码自动生成                                              
-*│　创建时间：2019-05-15 08:36:48                            
+*│　创建时间：2019-05-15 08:36:48                           
 *└──────────────────────────────────────────────────────────────┘
 *┌──────────────────────────────────────────────────────────────┐
-*│　命名空间: Models                                  
-*│　类    名：ManagerLog                                     
+*│　命名空间： IServices                                   
+*│　接口名称： INLogRepository                                      
 *└──────────────────────────────────────────────────────────────┘
 */
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Models
+namespace IServices
 {
-	/// <summary>
-	/// jwj
-	/// 2019-05-15 08:36:48
-	/// 操作日志
-	/// </summary>
-	public partial class ManagerLog
-	{
-
-	}
+    public interface INLogService
+    {
+    }
 }
