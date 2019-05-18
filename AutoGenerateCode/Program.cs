@@ -10,12 +10,14 @@ using System;
 
 namespace AutoGenerateCode
 {
-    class Program
+    public class Program
     {
       
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+
 
             var serviceProvider = BuildServiceForSqlServer();
             //var codeGenerator = serviceProvider.GetRequiredService<CodeGenerator>();

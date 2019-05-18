@@ -44,6 +44,7 @@ namespace Models
 	/// 2019-05-15 08:36:48
 	/// 后台管理菜单
 	/// </summary>
+    [Serializable]
 	public partial class Menu
 	{
 		/// <summary>
