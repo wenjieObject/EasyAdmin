@@ -4,6 +4,21 @@
         <name>WebApiSwagger</name>
     </assembly>
     <members>
+        <member name="T:WebApiSwagger.Attr.FromFileAttribute">
+            <summary>
+            FromFile
+            </summary>
+        </member>
+        <member name="P:WebApiSwagger.Attr.FromFileAttribute.BindingSource">
+            <summary>
+            是指定 BindingSource 为 BindingSource.FormFile
+            </summary>
+        </member>
+        <member name="T:WebApiSwagger.Controllers.FileController">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:WebApiSwagger.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
             <summary>
              

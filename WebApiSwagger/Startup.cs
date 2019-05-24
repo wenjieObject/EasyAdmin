@@ -43,30 +43,6 @@ namespace WebApiSwagger
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            if (Env.IsDevelopment())
-            {
-                services.AddSwaggerGen(options =>
-                {
-                    foreach (var d in docs) options.SwaggerDoc(d, new Info { Version = d });
-                    options.DocInclusionPredicate((docName, description) =>
-                    {
-                        description.TryGetMethodInfo(out MethodInfo mi);
-                        var attr = mi.DeclaringType.GetCustomAttribute<ApiExplorerSettingsAttribute>();
-                        if (attr != null)
-                        {
-                            return attr.GroupName == docName;
-                        }
-                        else
-                        {
-                            return docName == "未分类";
-                        }
-                    });
-                    var ss = options.SwaggerGeneratorOptions;
-
-                    options.IncludeXmlComments("Ron.SwaggerTest.xml");
-                });
-            }
-
 
         }
 
@@ -76,14 +52,7 @@ namespace WebApiSwagger
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger("swagger/{documentName}/swagger.json")
-                   .UseSwaggerUI(options =>
-                   {
-                       
-                       options.DocumentTitle = "Swagger 测试文档";
-                       foreach (var item in docs)
-                           options.SwaggerEndpoint($"/swagger/{item}/swagger.json", item);
-                   });
+   
             }
             else
             {
