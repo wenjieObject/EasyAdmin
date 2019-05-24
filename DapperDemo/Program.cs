@@ -21,6 +21,7 @@ namespace DapperDemo
             //引入Dapper
             IDbConnection connection = new SqlConnection("Data Source=(local);Initial Catalog=EasyAdmin;User ID=sa;pwd=123123123");
             var insertSql = "insert into RolePermission (MenuId,Permission,RoleId) values(@MenuId,@Permission,@RoleId)";
+           
 
             connection.Execute(insertSql, rp);
 

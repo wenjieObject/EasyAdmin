@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site", "Site\Site.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisDemo", "RedisDemo\RedisDemo.csproj", "{F120DEEC-C348-443A-A23A-634C7167F8C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDemo", "DapperDemo\DapperDemo.csproj", "{F16FBF4C-8B74-49C6-947A-71BFF4FDC274}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperDemo", "DapperDemo\DapperDemo.csproj", "{F16FBF4C-8B74-49C6-947A-71BFF4FDC274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSwagger", "WebApiSwagger\WebApiSwagger.csproj", "{5D50B35A-F56F-4252-8A8D-51B3890CBDA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{F16FBF4C-8B74-49C6-947A-71BFF4FDC274}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F16FBF4C-8B74-49C6-947A-71BFF4FDC274}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F16FBF4C-8B74-49C6-947A-71BFF4FDC274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D50B35A-F56F-4252-8A8D-51B3890CBDA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D50B35A-F56F-4252-8A8D-51B3890CBDA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D50B35A-F56F-4252-8A8D-51B3890CBDA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D50B35A-F56F-4252-8A8D-51B3890CBDA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
